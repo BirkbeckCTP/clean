@@ -31,8 +31,10 @@
 <div class="skipnav"><a href="#main">Skip to main content</a> <a href="#footer">Skip to footer</a></div>
 <div class="container">
     <header class="site-header" role="banner">
+        <div id="journal-title">
         <h1>{{ request.journal.name }}</h1>
-        {% include "core/nav.html" %}
+      </div>
+      {% include "core/nav.html" %}
     </header>
     <main id="main">
         {% for message in messages %}
