@@ -12,7 +12,7 @@ body {
 }
 
 .site-header {
-    background-color: #1C304A !important;
+    background-color: #1C304A;
     line-height: 1;
     border-bottom: 1px solid #e5e5e5;
     padding: 15px;
@@ -158,15 +158,15 @@ main a:hover {
 }
 
 .btn-primary, .btn-primary:active, .btn-primary:visited {
-    background-color: #1C304A !important;
-    border-color: #1C304A !important;
-    color: white !important;
+    background-color: #1C304A;
+    border-color: #1C304A;
+    color: white;
 }
 
 .btn-primary:hover {
-    color: white !important;
-    background-color: #1C304A !important;
-    border-color: #1C304A !important;
+    color: white;
+    background-color: #1C304A;
+    border-color: #1C304A;
     transition: all 1s ease;
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
