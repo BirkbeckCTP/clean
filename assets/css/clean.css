@@ -244,3 +244,8 @@ main a:hover {
 .card-block {
     padding: 20px;
 }
+
+footer svg {
+    height: 100px;
+    width: 100%;
+}
