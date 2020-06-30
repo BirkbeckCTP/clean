@@ -67,11 +67,10 @@
                 <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>{% endif %}
             {% hook 'nav_block' %}
             {% if request.journal.nav_start and not journal_settings.general.disable_journal_submission %}
-                <li class="nav-item"><a href="{% url 'submission_start' %}" class="nav-link"><span
-                        class="fa fa-cloud-upload"></span> Start
+                <li class="nav-item"><a href="{% url 'submission_start' %}" class="nav-link"> Start
                     Submission</a></li>{% endif %}
             {% if request.journal.nav_review %}
-                <li class="nav-item"><a href="{% url 'become_reviewer' %}" class="nav-link"><span class="fa fa-trophy"></span>
+                <li class="nav-item"><a href="{% url 'become_reviewer' %}" class="nav-link">
                     Become a Reviewer</a>
                 </li>{% endif %}
             {% if request.user.is_authenticated %}
@@ -100,10 +99,8 @@
                     </div>
                 </li>
             {% else %}
-                <li class="nav-item"><a href="{% url 'core_login' %}" class="nav-link"><span class="fa fa-sign-in">
-                    &nbsp;</span>Login</a></li>
-                <li class="nav-item"><a href="{% url 'core_register' %}" class="nav-link"><span class="fa fa-user-plus">
-                    &nbsp;</span>Register</a></li>
+                <li class="nav-item"><a href="{% url 'core_login' %}" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="{% url 'core_register' %}" class="nav-link">Register</a></li>
             {% endif %}
         </ul>
 
