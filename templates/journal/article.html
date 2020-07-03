@@ -114,6 +114,7 @@
                     <h4>{% trans "Download" %}</h4>
                     <ul>
                         {% for galley in galleys %}
+                            {% if not galley.label == 'HTML' or not galley.file.mime_type == 'text/html' %}
                             <li>
                                 <a href="{% url 'article_download_galley' article.id galley.id %}">{% trans "Download" %} {{ galley.label }}</a>
                                 {% if galley.file.mime_type == 'application/pdf' and journal.view_pdf_button %}
@@ -122,6 +123,7 @@
                                         <a target="_blank" href="{% url 'article_view_galley' article.id galley.id %}">{% trans "View" %} {{ galley.label }}</a>
                                 {% endif %}
                             </li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
                 {% endif %}
