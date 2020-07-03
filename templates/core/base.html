@@ -33,10 +33,12 @@
     <header class="site-header" role="banner">
         <div id="journal-title">
             <div class="row">
+                {% if request.journal.header_mage %}
                 <div class="col-md-2">
                     <a href="{{ request.journal.site_url }}"><img src="{{ request.journal.header_image.url }}"
                                                               class="img-fluid header-image top-bar-image"></a>
                 </div>
+                {% endif %}
                 <div class="col-md-10">
                     <h1 class="journal-name">{{ request.journal.name }}</h1>
                 </div>
