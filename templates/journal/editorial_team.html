@@ -22,7 +22,7 @@
                     {% if journal_settings.general.enable_editorial_images %}
                         <img class="card-img-top card-img" src="
                                 {% if member.user.profile_image %}{{ member.user.profile_image.url }}{% else %}{% static "common/img/icons/users.png" %}{% endif %}"
-                             alt="A picture of {{ member.user.full_name }}">
+                             alt="{{ member.user.full_name }}'s profile image.">
                     {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ member.user.full_name }}</h5>

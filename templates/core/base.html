@@ -36,7 +36,7 @@
                 {% if request.journal.header_image %}
                 <div class="col-md-2">
                     <a href="{{ request.journal.site_url }}"><img src="{{ request.journal.header_image.url }}"
-                                                              class="img-fluid header-image top-bar-image"></a>
+                                                              class="img-fluid header-image top-bar-image" alt="{{ request.journal.name }} logo"></a>
                 </div>
                 {% endif %}
                 <div class="col-md-10">
