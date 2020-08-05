@@ -73,6 +73,8 @@
                 <li class="nav-item"><a href="{% url 'become_reviewer' %}" class="nav-link">
                     Become a Reviewer</a>
                 </li>{% endif %}
+        </ul>
+        <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap font-weight-bold">
             {% if request.user.is_authenticated %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="user"

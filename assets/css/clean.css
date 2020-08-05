@@ -219,7 +219,7 @@ main a:hover {
 }
 
 .card img {
-    max-height: 200px;
+    max-height: 250px;
     object-fit: cover;
 }
 
@@ -260,12 +260,60 @@ footer svg {
 }
 
 @media screen and (max-width: 990px) {
-  .article-title {
-      font-size: 1.1em !important;
-  }
+    .article-title {
+        font-size: 1.1em !important;
+    }
+}
+
+@media screen and (max-width: 764px) {
+    .article-title {
+        font-size: 0.9em !important;
+    }
+
+    p {
+        font-size: 0.7em !important;
+        margin-bottom: 8px;
+    }
+
+    .card-img-overlay {
+        padding: 10px;
+    }
+
+    .card img {
+        min-height: 220px;
+        object-fit: cover;
+    }
 }
 
 .card-deck {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.article-title {
+    font-size: 1.5rem;
+}
+
+.editor-name {
+    font-size: 1.25rem;
+}
+
+.article-menu h3 {
+    font-size: 1.5rem;
+}
+
+.white-text {
+    color: white;
+}
+
+.white-text a {
+    color: white;
+}
+
+.white-text a:hover {
+    color: white;
+}
+
+.article-img {
+    filter: brightness(50%);
 }
