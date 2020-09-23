@@ -100,7 +100,7 @@
         <div class="col-md-4 offset-md-1 left-bar">
             <div class="article-menu">
                 {% if journal.disable_article_images %}
-                    <h3>{% trans "Authors" %}</h3>
+                    <h2>{% trans "Authors" %}</h2>
                     <ul>
                     {% for author in article.frozen_authors.all %}
                         <li>
@@ -111,7 +111,7 @@
                 {% endif %}
 
                 {% if article.is_published %}
-                    <h3>{% trans "Download" %}</h3>
+                    <h2>{% trans "Download" %}</h2>
                     <ul>
                         {% for galley in galleys %}
                             {% if not galley.label == 'HTML' or not galley.file.mime_type == 'text/html' %}
@@ -128,7 +128,7 @@
                     </ul>
                 {% endif %}
                 {% if article.supplementary_files.all %}
-                    <h3>{% trans "Supplementary Files" %}</h3>
+                    <h2>{% trans "Supplementary Files" %}</h2>
                     <ul>
                         {% for file in article.supplementary_files.all %}
                             <li><a href="{% url 'article_download_supp_file' article.pk file.pk %}">{{ file.label }}</a>
@@ -136,7 +136,7 @@
                         {% endfor %}
                     </ul>
                 {% endif %}
-                <h3>{% trans "Information" %}</h3>
+                <h2>{% trans "Information" %}</h2>
                 <ul>
                     {% if article.is_published %}
                     <li>{% trans "Published on" %} {{ article.date_published|date:"d M Y" }}</li>
@@ -156,12 +156,12 @@
                     {% endif %}
                 </ul>
                 {% for field in article.custom_fields %}
-                <h3>{% trans field.field.name %}</h3>
+                <h2>{% trans field.field.name %}</h2>
                 <p>{{ field.answer }}</p>
                 {% endfor %}
                 {% if article.is_published %}
                     {% if not request.journal.disable_metrics_display %}
-                    <h3>{% trans "Metrics" %}</h3>
+                    <h2>{% trans "Metrics" %}</h2>
                     <ul>
                         <li>{% trans "Views" %}: {{ article.metrics.views }}</li>
                         <li>{% trans "Downloads" %}: {{ article.metrics.downloads }}</li>
@@ -175,7 +175,7 @@
                             <li>{% trans "Citations" %}: {{ article.citation_count }}</li>{% endif %}
                     </ul>
                     {% endif %}
-                    <h3>{% trans "Citation" %}</h3>
+                    <h2>{% trans "Citation" %}</h2>
                     <div class="btn-group-vertical">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#HarvardModal">
                             Harvard-Style Citation
@@ -188,7 +188,7 @@
                         </button>
                         <br/>
                     </div>
-                    <h3>File Checksums (MD5)</h3>
+                    <h2>File Checksums (MD5)</h2>
                     <ul>
                         {% for galley in galleys %}
                             <li>
