@@ -244,3 +244,18 @@ main a:hover {
 .card-block {
     padding: 20px;
 }
+
+#carousel-buttons {
+    margin-left: 100px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.carousel-control-next {
+	top: 40px;
+}
+
+.carousel-control-prev {
+	top: 40px;
+}
