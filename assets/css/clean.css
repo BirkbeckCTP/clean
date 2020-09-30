@@ -227,7 +227,7 @@ main a:hover {
 .carousel-caption {
     left: 0px;
     bottom: 0px;
-    background-color: rgba(55, 55, 55, .5);
+    background-color: rgba(55, 55, 55, .8);
 }
 
 .row-eq-height {
