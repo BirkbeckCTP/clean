@@ -30,7 +30,7 @@
                 <div class="card-img-overlay white-text">
                     <div class="card-text">
                         <p class="text-uppercase">{{ article.section.name }}</p>
-                        <h1 class="card-title align-text-bottom">{{ article.title|safe }}</h1>
+                        <h1 class="card-title align-text-bottom article-title">{{ article.title|safe }}</h1>
                         {% if article.is_published %}
                             <p><strong>{% if article.frozen_authors.all|length > 1 %}{% trans "Authors" %}{% else %}
                             {% trans "Author" %}{% endif %}:</strong>
@@ -50,7 +50,7 @@
                                                 itemprop="name">({{ author.institution }})</span></span>{% endif %}
                                     {% if author.is_correspondence_author %}
                                         <a itemprop="email" href="mailto:{{ author.author.email }}"
-                                           class="fa fa-envelope email-link"></a>{% endif %}</span></span>
+                                           class="fa fa-envelope email-link"> Contact</a>{% endif %}</span></span>
                             {% endfor %}
                         {% endif %}
                     </div>
@@ -71,7 +71,7 @@
                     <h2>{% trans "Abstract" %}</h2>
                     <p>{{ article.abstract | safe }}</p>
                 {% endif %}
-                {% if article.keywords and article.keywords|length > 0 %}<p><strong>{% trans "Keywords" %}:</strong>
+                {% if article.keywords and article.keywords.count > 0 %}<p><strong>{% trans "Keywords" %}:</strong>
                     {% for keyword in article.keywords.all %}{{ keyword.word }}{% if not forloop.last %},
                     {% endif %}{% endfor %}</p>{% endif %}
                 {% if article.is_published %}
@@ -89,7 +89,6 @@
                     </div>
                 {% endif %}
                 {% if article_content %}
-                    <h2>{% trans "Article" %}</h2>
                     <div itemprop="articleBody" id="main_article">
                         {{ article_content|safe }}
                         {% hook 'article_footer_block' %}
@@ -101,7 +100,7 @@
         <div class="col-md-4 offset-md-1 left-bar">
             <div class="article-menu">
                 {% if journal.disable_article_images %}
-                    <h4>{% trans "Authors" %}</h4>
+                    <h2>{% trans "Authors" %}</h2>
                     <ul>
                     {% for author in article.frozen_authors.all %}
                         <li>
@@ -112,9 +111,10 @@
                 {% endif %}
 
                 {% if article.is_published %}
-                    <h4>{% trans "Download" %}</h4>
+                    <h2>{% trans "Download" %}</h2>
                     <ul>
                         {% for galley in galleys %}
+                            {% if not galley.label == 'HTML' or not galley.file.mime_type == 'text/html' %}
                             <li>
                                 <a href="{% url 'article_download_galley' article.id galley.id %}">{% trans "Download" %} {{ galley.label }}</a>
                                 {% if galley.file.mime_type == 'application/pdf' and journal.view_pdf_button %}
@@ -123,11 +123,12 @@
                                         <a target="_blank" href="{% url 'article_view_galley' article.id galley.id %}">{% trans "View" %} {{ galley.label }}</a>
                                 {% endif %}
                             </li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
                 {% endif %}
                 {% if article.supplementary_files.all %}
-                    <h4>{% trans "Supplementary Files" %}</h4>
+                    <h2>{% trans "Supplementary Files" %}</h2>
                     <ul>
                         {% for file in article.supplementary_files.all %}
                             <li><a href="{% url 'article_download_supp_file' article.pk file.pk %}">{{ file.label }}</a>
@@ -135,7 +136,7 @@
                         {% endfor %}
                     </ul>
                 {% endif %}
-                <h4>{% trans "Information" %}</h4>
+                <h2>{% trans "Information" %}</h2>
                 <ul>
                     {% if article.is_published %}
                     <li>{% trans "Published on" %} {{ article.date_published|date:"d M Y" }}</li>
@@ -155,12 +156,12 @@
                     {% endif %}
                 </ul>
                 {% for field in article.custom_fields %}
-                <h4>{% trans field.field.name %}</h4>
+                <h2>{% trans field.field.name %}</h2>
                 <p>{{ field.answer }}</p>
                 {% endfor %}
                 {% if article.is_published %}
                     {% if not request.journal.disable_metrics_display %}
-                    <h4>{% trans "Metrics" %}</h4>
+                    <h2>{% trans "Metrics" %}</h2>
                     <ul>
                         <li>{% trans "Views" %}: {{ article.metrics.views }}</li>
                         <li>{% trans "Downloads" %}: {{ article.metrics.downloads }}</li>
@@ -174,7 +175,7 @@
                             <li>{% trans "Citations" %}: {{ article.citation_count }}</li>{% endif %}
                     </ul>
                     {% endif %}
-                    <h4>{% trans "Citation" %}</h4>
+                    <h2>{% trans "Citation" %}</h2>
                     <div class="btn-group-vertical">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#HarvardModal">
                             Harvard-Style Citation
@@ -187,7 +188,7 @@
                         </button>
                         <br/>
                     </div>
-                    <h4>File Checksums (MD5)</h4>
+                    <h2>File Checksums (MD5)</h2>
                     <ul>
                         {% for galley in galleys %}
                             <li>

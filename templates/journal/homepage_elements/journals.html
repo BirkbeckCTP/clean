@@ -6,8 +6,9 @@
     {% for current_journal in featured_journals %}
         <div class="col-md-2 row-eq-height">
             <div class="card" style="width: 20rem;">
-                <img class="card-img-top img-fluid" src="
-                        {% if current_journal.default_cover_image %}{{ current_journal.default_cover_image.url }}{% endif %}">
+                <img class="card-img-top img-fluid"
+                     src="{% if current_journal.default_cover_image %}{{ current_journal.default_cover_image.url }}{% endif %}"
+                     alt="{{ current_journal.name }}'s cover image.">
                 <div class="card-block">
                     {% if current_journal.is_remote %}
                         <a href="{{ current_journal.remote_view_url }}">

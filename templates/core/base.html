@@ -1,6 +1,8 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as current_language %}
 <!DOCTYPE html>
-<html lang="{{ settings.LANGUAGE_CODE }}">
+<html lang="{{ current_language }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,8 +34,19 @@
 <div class="container">
     <header class="site-header" role="banner">
         <div id="journal-title">
-        <h1>{{ request.journal.name }}</h1>
-      </div>
+            <div class="row">
+                {% if request.journal.header_image %}
+                <div class="col-md-2">
+                    <a href="{{ request.journal.site_url }}"><img src="{{ request.journal.header_image.url }}"
+                                                              class="img-fluid header-image top-bar-image" alt="{{ request.journal.name }} logo"></a>
+                </div>
+                {% endif %}
+                <div class="col-md-10">
+                    <h1 class="journal-name">{{ request.journal.name }}</h1>
+                </div>
+            </div>
+
+        </div>
       {% include "core/nav.html" %}
     </header>
     <main id="main">

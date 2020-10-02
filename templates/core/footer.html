@@ -20,8 +20,8 @@
     <div class="col-md-5">
                 <ul class="list-inline text-right">
                     <small>
-                    <li class="list-inline-item"><a href="/site/privacy/">{% trans "Privacy Policy" %}</a></li>
-                    <li class="list-inline-item"><a href="/sitemap">{% trans "Sitemap" %}</a></li>
+                    <li class="list-inline-item"><a href="{% journal_url 'cms_page' 'privacy-policy' %}">{% trans "Privacy Policy" %}</a></li>
+                    <li class="list-inline-item"><a href="{% journal_url 'journal_sitemap' %}">{% trans "Sitemap" %}</a></li>
                     <li class="list-inline-item"><a href="{% url 'contact' %}">{% trans "Contact" %}</a></li>
                     {% if not request.user.is_authenticated %}
                         <li class="list-inline-item"><a href="{% url 'core_login' %}">Login</a></li>{% endif %}

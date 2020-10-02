@@ -23,6 +23,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
+.article-title {
+    font-size: 1.7em;
+}
+
 .display-4 {
     font-size: 2.5rem;
 }
@@ -117,10 +121,15 @@ main a:hover {
  */
 .site-footer {
     padding: 2.5rem 15px;
-    color: #999;
+    color: #5E5E5E;
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: #FCFCFC;
     border-top: .05rem solid #e5e5e5;
+}
+
+.site-footer a {
+    color: #00688B;
+    text-decoration: underline;
 }
 
 .site-footer p:last-child {
@@ -210,7 +219,7 @@ main a:hover {
 }
 
 .card img {
-    max-height: 200px;
+    max-height: 250px;
     object-fit: cover;
 }
 
@@ -258,4 +267,68 @@ main a:hover {
 
 .carousel-control-prev {
 	top: 40px;
+}
+
+footer svg {
+    height: 100px;
+    width: 100%;
+}
+
+@media screen and (max-width: 990px) {
+    .article-title {
+        font-size: 1.1em !important;
+    }
+}
+
+@media screen and (max-width: 764px) {
+    .article-title {
+        font-size: 0.9em !important;
+    }
+
+    p {
+        font-size: 0.7em !important;
+        margin-bottom: 8px;
+    }
+
+    .card-img-overlay {
+        padding: 10px;
+    }
+
+    .card img {
+        min-height: 220px;
+        object-fit: cover;
+    }
+}
+
+.card-deck {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.article-title {
+    font-size: 1.5rem;
+}
+
+.editor-name {
+    font-size: 1.25rem;
+}
+
+.article-menu h2 {
+    font-size: 1.5rem;
+}
+
+.white-text {
+    color: white;
+}
+
+.white-text a {
+    color: white;
+}
+
+.white-text a:hover {
+    color: white;
+}
+
+.article-img {
+    filter: brightness(50%);
 }
