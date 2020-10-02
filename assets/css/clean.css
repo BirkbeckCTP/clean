@@ -332,3 +332,10 @@ footer svg {
 .article-img {
     filter: brightness(50%);
 }
+
+.journal-name {
+    font-size: 2.5rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
